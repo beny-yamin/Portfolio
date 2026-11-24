@@ -4,12 +4,12 @@ import { LivingSpaceBackdrop } from './components/canvas/LivingSpaceBackdrop';
 import { CursorTrailCanvas } from './components/canvas/CursorTrailCanvas';
 import { FloatingHeader } from './components/layout/FloatingHeader';
 import { AmbientSoundToggle } from './components/ui/AmbientSoundToggle';
-import { PhilosophyManifesto } from './components/ui/PhilosophyManifesto';
 import { CinematicGateLoader } from './components/ui/CinematicGateLoader';
 import { HeroSection } from './sections/HeroSection';
 import { AboutSection } from './sections/AboutSection';
+import { ExperienceSection } from './sections/ExperienceSection';
+import { SkillsSection } from './sections/SkillsSection';
 import { ProjectsSection } from './sections/ProjectsSection';
-import { VisionSection } from './sections/VisionSection';
 import { ContactSection } from './sections/ContactSection';
 import { usePortfolioData } from './hooks/usePortfolioData';
 
@@ -35,27 +35,25 @@ export const App: React.FC = () => {
         {/* Fixed Ambient Sound Controller */}
         <AmbientSoundToggle />
 
-        {/* SECTION 1: Home Landing Area (Full 3D Spatial Environment) */}
+        {/* SECTION 1: Home Landing Area (Full 3D Spatial Environment — UNTOUCHED) */}
         <main className="relative z-10 flex flex-col">
           <HeroSection profile={profile} />
 
-          {/* SUBSEQUENT SECTIONS: Completely Solid, Minimalist Pure Black Background */}
+          {/* SUBSEQUENT SECTIONS: Minimalist Pure Black Background */}
           <div className="relative z-20 w-full bg-[#000000] text-slate-100 min-h-screen border-t border-white/[0.08]">
-            {/* Core Engineering Philosophy Opening */}
-            <section id="manifesto" className="min-h-screen flex flex-col items-center justify-center relative py-16 px-6">
-              <PhilosophyManifesto lines={profile.scrollManifestoLines} />
-            </section>
-
-            {/* About Section */}
+            {/* Section 2: About (Core Capabilities & Origin Narrative) */}
             <AboutSection profile={profile} />
 
-            {/* Projects Section */}
+            {/* Section 3: Experience (Career Pipeline & Developer Git Log Timeline) */}
+            <ExperienceSection />
+
+            {/* Section 4: Skills (Integrated Technical Craft & Interactive Simulations) */}
+            <SkillsSection />
+
+            {/* Section 5: Projects (Production Systems, Active Selector, Architecture Inspector) */}
             <ProjectsSection projects={projects} />
 
-            {/* Vision Section */}
-            <VisionSection profile={profile} />
-
-            {/* Contact Section */}
+            {/* Section 6: Contact (Live Production Dispatch & Instant Copy Pills) */}
             <ContactSection profile={profile} />
           </div>
         </main>

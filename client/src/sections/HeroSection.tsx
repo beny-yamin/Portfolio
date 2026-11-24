@@ -34,7 +34,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile }) => {
 
   const handleExploreClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    scrollToTarget('#manifesto', 0);
+    scrollToTarget('#about', 0);
   };
 
   const audioEnergy = audioBands

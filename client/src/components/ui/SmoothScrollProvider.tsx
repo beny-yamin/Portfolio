@@ -31,7 +31,7 @@ export const SmoothScrollProvider: React.FC<SmoothScrollProviderProps> = ({ chil
     rafId = requestAnimationFrame(raf);
 
     // Smooth Automatic Section Settling Controller
-    const SECTION_IDS = ['home', 'manifesto', 'about', 'projects', 'vision', 'contact'];
+    const SECTION_IDS = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
     let lastScrollY = window.scrollY;
     let scrollDirection = 0;
     let snapTimer: number | undefined;

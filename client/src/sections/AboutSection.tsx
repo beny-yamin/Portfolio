@@ -1,111 +1,132 @@
 import React from 'react';
 import { ProfileConfig } from '../types/portfolio';
-import { CraftExplorerTabs } from '../components/ui/CraftExplorerTabs';
-import { Sparkles, Shield, HeartHandshake, Calendar } from 'lucide-react';
 
 interface AboutSectionProps {
   profile: ProfileConfig;
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ profile }) => {
-  const valueIcons = [Sparkles, Shield, HeartHandshake];
+  const capabilities = [
+    {
+      num: '01',
+      title: 'FULL-STACK ARCHITECTURE',
+      desc: 'High-concurrency Node.js, Express, and MongoDB Atlas systems with WebSocket event pipelines and clean modular APIs.',
+      stack: ['TypeScript', 'Node.js', 'Express', 'MongoDB'],
+    },
+    {
+      num: '02',
+      title: 'OFFLINE-FIRST RESILIENCE',
+      desc: 'Zero-latency Progressive Web Apps with client-side IndexedDB persistence, cache-first strategies, and background sync.',
+      stack: ['PWAs', 'IndexedDB', 'Service Workers'],
+    },
+    {
+      num: '03',
+      title: 'REAL-TIME 3D & SHADERS',
+      desc: 'GPU-accelerated Three.js spatial environments, custom GLSL vertex/fragment shaders, and 60fps RAF culling.',
+      stack: ['Three.js', 'WebGL', 'GLSL', 'Framer Motion'],
+    },
+  ];
 
   return (
-    <section id="about" className="relative min-h-screen flex flex-col justify-center py-20 sm:py-24 px-6 sm:px-10 max-w-7xl mx-auto space-y-20">
-      {/* SECTION HEADER */}
-      <div className="space-y-4 max-w-2xl">
-        <span className="text-xs font-mono text-cyan-400 tracking-wider uppercase">
-          // 01. The Human Behind The Code
-        </span>
-        <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-          Curiosity, Discipline, &amp; The Long Arc of Mastery
-        </h2>
-      </div>
-
-      {/* LAYER 1: Personal Story & Addis Ababa Journey */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        <div className="space-y-4 text-slate-300 font-sans leading-relaxed text-base sm:text-lg">
-          {profile.aboutStory.slice(0, 2).map((paragraph, idx) => (
-            <p key={idx}>{paragraph}</p>
-          ))}
+    <section
+      id="about"
+      className="relative h-screen min-h-[640px] max-h-screen w-full bg-[#000000] text-slate-100 flex flex-col justify-between py-10 sm:py-14 px-6 sm:px-12 select-none overflow-hidden max-w-7xl mx-auto border-t border-white/10"
+    >
+      {/* 1. TOP HEADER RULE */}
+      <div className="flex items-center justify-between border-b border-white/10 pb-3 font-mono text-xs text-white/50 tracking-wider">
+        <div className="flex items-center gap-2">
+          <span className="text-cyan-400 font-semibold">[ 02 // CORE CAPABILITIES ]</span>
+          <span className="hidden sm:inline text-white/30">/</span>
+          <span className="hidden sm:inline text-white/60">BINIYAM KIBRU HERAMO</span>
         </div>
-        <div className="space-y-4 text-slate-300 font-sans leading-relaxed text-base sm:text-lg">
-          {profile.aboutStory.slice(2).map((paragraph, idx) => (
-            <p key={idx}>{paragraph}</p>
-          ))}
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-white/70">ET / ADDIS ABABA · UTC+3</span>
         </div>
       </div>
 
-      {/* LAYER 2: Inner Values & Stoic Daily Discipline */}
-      <div className="space-y-8">
-        <h3 className="text-xl sm:text-2xl font-display font-semibold text-white">
-          What Guides My Everyday Engineering
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {profile.innerValues.map((val, idx) => {
-            const Icon = valueIcons[idx % valueIcons.length];
-            return (
+      {/* 2. MAIN 2-COLUMN VIEWPORT CONTENT */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center flex-1 my-auto py-4">
+        {/* LEFT COLUMN: IDENTITY PORTRAIT & METRIC PILLS */}
+        <div className="lg:col-span-4 flex flex-col items-center lg:items-start gap-4">
+          <div className="w-56 h-72 sm:w-64 sm:h-80 border border-white/15 bg-white/[0.02] relative overflow-hidden group shadow-2xl">
+            <img
+              src={profile.portraitUrl}
+              alt={profile.fullName}
+              className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 right-3 text-left">
+              <span className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest block">
+                SOFTWARE ARCHITECT
+              </span>
+              <span className="text-sm font-display font-semibold text-white">
+                Biniyam Kibru
+              </span>
+            </div>
+          </div>
+
+          {/* Micro Telemetry Pills */}
+          <div className="w-56 sm:w-64 flex items-center justify-between font-mono text-[11px] text-white/50 border border-white/10 px-3 py-1.5 bg-white/[0.02]">
+            <span>Grade 12 Distinction</span>
+            <span className="text-cyan-400 font-semibold">5M Coders Cert</span>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN: PUNCHY EDITORIAL & 3 THIN DIVIDER ROWS */}
+        <div className="lg:col-span-8 flex flex-col justify-center space-y-6">
+          <div className="space-y-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-white tracking-tight leading-tight">
+              Full-Stack Systems. Built For Real Production.
+            </h2>
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-2xl font-sans">
+              I engineer end-to-end web applications with clean architecture—from high-concurrency Node.js backends and offline-first PWAs to GPU-optimized WebGL spatial interfaces.
+            </p>
+          </div>
+
+          {/* 3 THIN DIVIDER CAPABILITY ROWS (MATCHING REFERENCE UI) */}
+          <div className="border-t border-white/10 divide-y divide-white/10 font-mono">
+            {capabilities.map((item) => (
               <div
-                key={val.title}
-                className="p-6 rounded-2xl glass-card border-white/10 hover:border-cyan-500/40 space-y-4 group transition-all duration-300"
+                key={item.num}
+                className="py-3.5 group hover:bg-white/[0.02] px-2 -mx-2 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2"
               >
-                <div className="w-10 h-10 rounded-xl bg-cyan-950/40 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
-                  <Icon className="w-5 h-5" />
+                <div className="space-y-1 sm:max-w-md">
+                  <div className="flex items-center gap-2">
+                    <span className="text-cyan-400 font-bold text-xs">{item.num}.</span>
+                    <h3 className="text-xs sm:text-sm font-display font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-sans leading-normal">
+                    {item.desc}
+                  </p>
                 </div>
-                <div>
-                  <h4 className="text-base font-display font-semibold text-white">{val.title}</h4>
-                  <span className="text-xs font-mono text-amber-400/90">{val.principle}</span>
-                </div>
-                <p className="text-slate-400 text-sm leading-relaxed">{val.description}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
 
-      {/* LAYER 3: Interactive Craft Explorer */}
-      <div className="space-y-8">
-        <h3 className="text-xl sm:text-2xl font-display font-semibold text-white">
-          How I Build: Stack &amp; Methodologies
-        </h3>
-        <CraftExplorerTabs />
-      </div>
-
-      {/* LAYER 4: Moments Along The Way (Milestone Timeline) */}
-      <div className="space-y-8">
-        <h3 className="text-xl sm:text-2xl font-display font-semibold text-white">
-          Milestones Along The Path
-        </h3>
-        <div className="relative border-l border-white/10 ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-10">
-          {profile.journeyMilestones.map((m, idx) => (
-            <div key={idx} className="relative group">
-              {/* Timeline Indicator Dot */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-obsidian-deep border-2 border-cyan-400 group-hover:scale-125 transition-transform" />
-              <div className="space-y-2">
-                <div className="flex items-center gap-3">
-                  <span className="flex items-center gap-1 text-xs font-mono text-amber-400">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {m.year}
-                  </span>
-                  <h4 className="text-base sm:text-lg font-display font-semibold text-white">
-                    {m.title}
-                  </h4>
-                </div>
-                <p className="text-slate-400 text-sm max-w-2xl leading-relaxed">{m.story}</p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {m.tags.map((tag) => (
+                <div className="flex flex-wrap items-center gap-1.5 sm:justify-end">
+                  {item.stack.map((t) => (
                     <span
-                      key={tag}
-                      className="px-2.5 py-0.5 rounded-md text-[11px] font-mono text-slate-400 bg-white/[0.03] border border-white/5"
+                      key={t}
+                      className="px-2 py-0.5 rounded text-[10px] font-mono text-slate-300 bg-white/[0.04] border border-white/10"
                     >
-                      {tag}
+                      {t}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      </div>
+
+      {/* 3. BOTTOM GUIDING VALUES BAR */}
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-white/10 font-mono text-[11px] text-white/40">
+        <div className="flex items-center gap-4">
+          <span className="text-cyan-300/80">// First-Principles Curiosity</span>
+          <span className="text-amber-300/80">// Quiet Stoic Discipline</span>
+          <span className="text-slate-300/80">// Empathetic Craftsmanship</span>
+        </div>
+        <span className="text-white/30 hidden sm:inline">Addis Ababa, Ethiopia</span>
       </div>
     </section>
   );

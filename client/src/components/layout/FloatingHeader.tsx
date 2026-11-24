@@ -22,7 +22,7 @@ const NavItem: React.FC<NavItemProps> = ({ href, label }) => {
       href={href}
       onClick={handleClick}
       onMouseEnter={triggerScramble}
-      className="relative px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-cyan-300 transition-colors duration-200 font-mono tracking-wider cursor-pointer"
+      className="relative px-2 sm:px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-cyan-300 transition-colors duration-200 font-mono tracking-wider cursor-pointer"
     >
       <span>{displayText}</span>
     </a>
@@ -33,8 +33,9 @@ export const FloatingHeader: React.FC = () => {
   const navItems = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
-    { href: '#vision', label: 'Vision' },
   ];
 
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -52,7 +53,7 @@ export const FloatingHeader: React.FC = () => {
       {/* Top-Center: Boxless Transparent Text Navigation */}
       <nav
         aria-label="Main Navigation"
-        className="pointer-events-auto flex items-center gap-1 sm:gap-2 bg-transparent"
+        className="pointer-events-auto flex items-center gap-0.5 sm:gap-2 bg-transparent"
       >
         {navItems.map((item) => (
           <NavItem key={item.label} href={item.href} label={item.label} />
